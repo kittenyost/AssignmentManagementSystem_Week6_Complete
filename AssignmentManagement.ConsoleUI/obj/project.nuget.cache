@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "2hvsmispDVU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\kathy\\source\\repos\\AssignmentManagementSystem_Week6_Complete\\AssignmentManagement.ConsoleUI\\AssignmentManagement.ConsoleUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kathy\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.4\\microsoft.extensions.dependencyinjection.9.0.4.nupkg.sha512",
+    "C:\\Users\\kathy\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.4\\microsoft.extensions.dependencyinjection.abstractions.9.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}

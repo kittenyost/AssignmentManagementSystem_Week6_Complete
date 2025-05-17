@@ -1,0 +1,62 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kathy\\source\\repos\\AssignmentManagementSystem_Week6_Complete\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{95AF3AEB-DD05-A36F-E1B8-1AF52C0F26BE}|AssignmentManagement.Console\\AssignmentManagement.Console.csproj|c:\\users\\kathy\\source\\repos\\assignmentmanagementsystem_week6_complete\\assignmentmanagement.console\\consoleui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95AF3AEB-DD05-A36F-E1B8-1AF52C0F26BE}|AssignmentManagement.Console\\AssignmentManagement.Console.csproj|solutionrelative:assignmentmanagement.console\\consoleui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95AF3AEB-DD05-A36F-E1B8-1AF52C0F26BE}|AssignmentManagement.Console\\AssignmentManagement.ConsoleUI.csproj|c:\\users\\kathy\\source\\repos\\assignmentmanagementsystem_week6_complete\\assignmentmanagement.console\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95AF3AEB-DD05-A36F-E1B8-1AF52C0F26BE}|AssignmentManagement.Console\\AssignmentManagement.ConsoleUI.csproj|solutionrelative:assignmentmanagement.console\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\kathy\\source\\repos\\AssignmentManagementSystem_Week6_Complete\\AssignmentManagement.Console\\Program.cs",
+              "RelativeDocumentMoniker": "AssignmentManagement.Console\\Program.cs",
+              "ToolTip": "C:\\Users\\kathy\\source\\repos\\AssignmentManagementSystem_Week6_Complete\\AssignmentManagement.Console\\Program.cs",
+              "RelativeToolTip": "AssignmentManagement.Console\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T02:52:04.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ConsoleUI.cs",
+              "DocumentMoniker": "C:\\Users\\kathy\\source\\repos\\AssignmentManagementSystem_Week6_Complete\\AssignmentManagement.Console\\ConsoleUI.cs",
+              "RelativeDocumentMoniker": "AssignmentManagement.Console\\ConsoleUI.cs",
+              "ToolTip": "C:\\Users\\kathy\\source\\repos\\AssignmentManagementSystem_Week6_Complete\\AssignmentManagement.Console\\ConsoleUI.cs",
+              "RelativeToolTip": "AssignmentManagement.Console\\ConsoleUI.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T02:30:22.241Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
