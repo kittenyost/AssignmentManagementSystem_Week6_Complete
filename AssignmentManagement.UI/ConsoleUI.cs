@@ -1,5 +1,4 @@
 ﻿using AssignmentManagement.Core;
-
 using System;
 
 namespace AssignmentManagement.UI
@@ -41,16 +40,16 @@ namespace AssignmentManagement.UI
                         ListIncompleteAssignments();
                         break;
                     case "4":
-                        MarkAssignmentComplete(); // TODO
+                        MarkAssignmentComplete();
                         break;
                     case "5":
-                        SearchAssignmentByTitle(); // TODO
+                        SearchAssignmentByTitle();
                         break;
                     case "6":
-                        UpdateAssignment(); // TODO
+                        UpdateAssignment();
                         break;
                     case "7":
-                        DeleteAssignment(); // TODO
+                        DeleteAssignment();
                         break;
                     case "0":
                         Console.WriteLine("Goodbye!");
@@ -66,12 +65,22 @@ namespace AssignmentManagement.UI
         {
             Console.WriteLine("Enter assignment title: ");
             var title = Console.ReadLine();
+
             Console.WriteLine("Enter assignment description: ");
             var description = Console.ReadLine();
 
+            Console.WriteLine("Select priority (Low, Medium, High):");
+            var priorityInput = Console.ReadLine();
+
+            if (!Enum.TryParse(priorityInput, true, out Priority priority))
+            {
+                Console.WriteLine("Invalid priority. Defaulting to Medium.");
+                priority = Priority.Medium;
+            }
+
             try
             {
-                var assignment = new Assignment(title, description);
+                var assignment = new Assignment(title, description, priority);
                 if (_assignmentService.AddAssignment(assignment))
                 {
                     Console.WriteLine("Assignment added successfully.");
@@ -98,7 +107,7 @@ namespace AssignmentManagement.UI
 
             foreach (var assignment in assignments)
             {
-                Console.WriteLine($"- {assignment.Title}: {assignment.Description} (Completed: {assignment.IsCompleted})");
+                Console.WriteLine($"- {assignment.Title}: {assignment.Description} (Completed: {assignment.IsCompleted}, Priority: {assignment.Priority})");
             }
         }
 
@@ -113,7 +122,7 @@ namespace AssignmentManagement.UI
 
             foreach (var assignment in assignments)
             {
-                Console.WriteLine($"- {assignment.Title}: {assignment.Description} (Completed: {assignment.IsCompleted})");
+                Console.WriteLine($"- {assignment.Title}: {assignment.Description} (Completed: {assignment.IsCompleted}, Priority: {assignment.Priority})");
             }
         }
 
@@ -138,7 +147,7 @@ namespace AssignmentManagement.UI
             var assignment = _assignmentService.FindAssignmentByTitle(title);
             if (assignment != null)
             {
-                Console.WriteLine($"Found Assignment: {assignment.Title} - {assignment.Description} (Completed: {assignment.IsCompleted})");
+                Console.WriteLine($"Found Assignment: {assignment.Title} - {assignment.Description} (Completed: {assignment.IsCompleted}, Priority: {assignment.Priority})");
             }
             else
             {
@@ -150,10 +159,13 @@ namespace AssignmentManagement.UI
         {
             Console.WriteLine("Enter the title of the assignment to update:");
             var oldTitle = Console.ReadLine();
+
             Console.Write("Enter new title: ");
             var newTitle = Console.ReadLine();
+
             Console.Write("Enter new description: ");
             var newDescription = Console.ReadLine();
+
             if (_assignmentService.UpdateAssignment(oldTitle, newTitle, newDescription))
             {
                 Console.WriteLine("Assignment updated successfully.");
@@ -166,7 +178,17 @@ namespace AssignmentManagement.UI
 
         private void DeleteAssignment()
         {
-            // TODO: Implement UI for deleting assignment
+            Console.WriteLine("Enter the title of the assignment to delete:");
+            var title = Console.ReadLine();
+
+            if (_assignmentService.DeleteAssignment(title))
+            {
+                Console.WriteLine("Assignment deleted successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Assignment not found. Nothing was deleted.");
+            }
         }
     }
 }

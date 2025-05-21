@@ -1,6 +1,6 @@
-using AssignmentManagement.Api.Models;
-using AssignmentManagement.Core;
 using Microsoft.AspNetCore.Mvc;
+using AssignmentManagement.Core;
+using AssignmentManagement.Api.Models;
 
 namespace AssignmentManagement.Api.Controllers
 {
@@ -8,42 +8,55 @@ namespace AssignmentManagement.Api.Controllers
     [Route("api/[controller]")]
     public class AssignmentController : ControllerBase
     {
-        private readonly IAssignmentService _service;
+        private readonly IAssignmentService _assignmentService;
 
-        public AssignmentController(IAssignmentService service)
+        public AssignmentController(IAssignmentService assignmentService)
         {
-            _service = service;
+            _assignmentService = assignmentService;
         }
 
-        // POST /api/assignment
+        [HttpGet]
+        public ActionResult<IEnumerable<AssignmentDto>> GetAll()
+        {
+            var assignments = _assignmentService.ListAll();
+
+            var dtos = assignments.Select(a => new AssignmentDto
+            {
+                Title = a.Title,
+                Description = a.Description,
+                Priority = a.Priority
+            });
+
+            return Ok(dtos);
+        }
+
         [HttpPost]
-        public IActionResult CreateAssignment([FromBody] AssignmentDto dto)
+        public IActionResult Create([FromBody] AssignmentDto dto)
         {
             if (dto == null)
+            {
                 return BadRequest("Assignment data is required.");
+            }
 
             var assignment = new Assignment(dto.Title, dto.Description, dto.Priority);
-            var result = _service.AddAssignment(assignment);
+            var success = _assignmentService.AddAssignment(assignment);
 
-            return result
-                ? CreatedAtAction(nameof(GetAll), new { title = assignment.Title }, assignment)
-                : Conflict("Assignment already exists.");
+            if (!success)
+                return Conflict("An assignment with this title already exists.");
+
+            return CreatedAtAction(nameof(GetAll), new { title = dto.Title }, dto);
         }
 
-        // GET /api/assignment
-        [HttpGet]
-        public IActionResult GetAll()
-        {
-            var assignments = _service.ListAll();
-            return Ok(assignments);
-        }
-
-        // DELETE /api/assignment/{title}
         [HttpDelete("{title}")]
         public IActionResult Delete(string title)
         {
-            var result = _service.DeleteAssignment(title);
-            return result ? NoContent() : NotFound($"Assignment with title '{title}' not found.");
+            var result = _assignmentService.DeleteAssignment(title);
+            if (!result)
+            {
+                return NotFound("Assignment not found.");
+            }
+
+            return NoContent();
         }
     }
 }
